@@ -1,0 +1,27 @@
+# Environment files — NEVER commit these
+.env
+.env.local
+.env.production
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# Hardhat
+cache/
+artifacts/
+typechain-types/
+
+# Misc
+.DS_Store
+*.log
+npm-debug.log*
+.vercel
+coverage/

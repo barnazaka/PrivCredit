@@ -1,0 +1,23 @@
+{
+  "name": "privcredit-contracts",
+  "version": "1.0.0",
+  "description": "PrivCredit ERC-7984 Confidential Token Smart Contracts",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "test": "npx hardhat test",
+    "deploy:local": "npx hardhat run scripts/deploy.ts --network hardhat",
+    "deploy:sepolia": "npx hardhat run scripts/deploy.ts --network arbitrumSepolia",
+    "deploy:mainnet": "npx hardhat run scripts/deploy.ts --network arbitrum",
+    "node": "npx hardhat node",
+    "clean": "npx hardhat clean"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox-viem": "^3.0.0",
+    "hardhat": "^2.22.0",
+    "typescript": "^5.4.0",
+    "ts-node": "^10.9.2",
+    "@types/node": "^20.12.0",
+    "dotenv": "^16.4.5",
+    "viem": "^2.9.0"
+  }
+}

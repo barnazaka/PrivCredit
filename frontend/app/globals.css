@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --void: #020308;
+  --vault: #080f1a;
+  --cipher: #0d1f35;
+  --nox: #00ff88;
+  --nox-dim: #00cc6a;
+  --nox-glow: rgba(0, 255, 136, 0.15);
+  --credit: #00d4ff;
+  --warn: #ff6b35;
+  --muted: #3a4a5c;
+  --panel: #0a1628;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--void);
+  color: #e0f0ff;
+  font-family: "IBM Plex Mono", monospace;
+  overflow-x: hidden;
+}
+
+/* Scanline overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Grid background */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Nox glow border */
+.border-nox {
+  border: 1px solid rgba(0, 255, 136, 0.3);
+}
+
+.border-nox-bright {
+  border: 1px solid var(--nox);
+}
+
+/* Panel style */
+.panel {
+  background: var(--panel);
+  border: 1px solid rgba(0, 255, 136, 0.15);
+  box-shadow: inset 0 1px 0 rgba(0, 255, 136, 0.08), 0 4px 32px rgba(0, 0, 0, 0.8);
+}
+
+/* Nox glow text */
+.text-nox-glow {
+  color: var(--nox);
+  text-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
+}
+
+/* Button styles */
+.btn-nox {
+  background: transparent;
+  border: 1px solid var(--nox);
+  color: var(--nox);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-nox::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--nox);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+  z-index: -1;
+}
+
+.btn-nox:hover::before {
+  transform: scaleX(1);
+}
+
+.btn-nox:hover {
+  color: var(--void);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+}
+
+.btn-nox:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.btn-nox:disabled::before {
+  display: none;
+}
+
+/* Input styles */
+.input-cipher {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  color: #e0f0ff;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.875rem;
+  padding: 0.625rem 0.875rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.input-cipher:focus {
+  border-color: var(--nox);
+  box-shadow: 0 0 0 1px var(--nox);
+}
+
+.input-cipher::placeholder {
+  color: var(--muted);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--void);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--nox-dim);
+}
+
+/* Blinking cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink::after {
+  content: "█";
+  animation: blink 1s step-end infinite;
+  color: var(--nox);
+}
+
+/* Status badges */
+.badge-encrypted {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: rgba(0, 255, 136, 0.08);
+  border: 1px solid rgba(0, 255, 136, 0.25);
+  color: var(--nox);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.5rem;
+  text-transform: uppercase;
+}
+
+/* Transaction log */
+.tx-log {
+  background: rgba(0, 0, 0, 0.6);
+  border-left: 2px solid var(--nox);
+  padding: 0.5rem 1rem;
+  font-size: 0.7rem;
+  color: var(--nox-dim);
+  font-family: "IBM Plex Mono", monospace;
+}
