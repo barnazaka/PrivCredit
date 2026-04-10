@@ -282,34 +282,6 @@ Call `auditBalance(address)` directly on Arbiscan (connected as owner):
 
 Arbiscan: https://sepolia.arbiscan.io/address/0x_FILL_AFTER_DEPLOY
 
----
-
-## Demo Video Script (4 minutes)
-
-### [0:00–0:30] Introduction
-> "PrivCredit is a confidential private credit marketplace for SMEs built on Arbitrum using iExec Nox and the ERC-7984 Confidential Token standard. Today I'll show you how originators can tokenize invoices and lenders can supply liquidity — all without exposing position sizes on-chain."
-
-### [0:30–1:00] Show the Architecture
-> "Here's our stack: PrivCreditToken implements ERC-7984, the new Confidential Token standard. All transfers use encrypted blobs — amounts are never stored or emitted in plaintext on the blockchain. The PrivCreditPool accepts these confidential deposits, recording only that a lender participated — never how much."
-
-### [1:00–1:45] Mint PCT (Originator Flow)
-> "First, I'll mint 10,000 PCT as the originator. This represents a batch of tokenized SME invoices. The mint transaction is visible for compliance in this demo — in production, even minting would be confidential."
-- Connect wallet → Mint tab → Mint 10,000 PCT → Show tx on Arbiscan
-
-### [1:45–2:30] Confidential Transfer
-> "Now I'll send 1,000 PCT to a lender wallet. Watch the Arbiscan event log — the ConfidentialTransfer event shows sender and receiver, but the amount is completely hidden. This is ERC-7984 in action."
-- Transfer tab → Enter lender address → Send → Show Arbiscan event with no amount
-
-### [2:30–3:15] Private Pool Deposit
-> "The lender now deposits into the SME Invoice Pool. Two confidential transactions fire: an encrypted approval, then an encrypted transfer. The pool records that this address has deposited — but the amount is encrypted. The pool TVL shows as redacted."
-- Deposit tab → 1000 PCT → Show pool lender count increment → Show Arbiscan Deposited event
-
-### [3:15–3:45] Selective Disclosure / Audit
-> "Finally, the auditor. Only the contract owner can call auditBalance — demonstrating selective disclosure. This is how a regulator or compliance officer gets the data they need without exposing every participant's position."
-- Show Arbiscan Write Contract → auditBalance → Reveal plaintext for owner only
-
-### [3:45–4:00] Closing
-> "PrivCredit shows that institutional-grade private credit is possible on public blockchains today, thanks to iExec Nox Confidential Computing. ERC-7984 makes this composable with the rest of Arbitrum DeFi. Thank you."
 
 ---
 
