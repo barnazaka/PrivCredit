@@ -13,8 +13,7 @@
 5. [Frontend Setup](#frontend-setup)
 6. [Testing the Flows](#testing-the-flows)
 7. [Deployed Contract Addresses](#deployed-contract-addresses)
-8. [Demo Video Script](#demo-video-script)
-9. [Project Structure](#project-structure)
+8. [Project Structure](#project-structure)
 
 ---
 
@@ -108,8 +107,6 @@ PRIVATE_KEY=your_deployer_wallet_private_key_here
 ARBITRUM_SEPOLIA_RPC=https://sepolia-rollup.arbitrum.io/rpc
 ARBISCAN_API_KEY=your_arbiscan_api_key_here   # optional
 ```
-
-> ⚠️ Never commit your `.env` file. It is already in `.gitignore`.
 
 ### 3. Compile contracts
 
@@ -343,12 +340,3 @@ privcredit/
     ├── package.json
     └── .env.local.example
 ```
-
----
-
-## Security Notes
-
-- This is a **hackathon demo**. The "encryption" is ABI encoding, not real FHE.
-- In production Nox deployment, amounts would be encrypted via the Nox SDK before leaving the client.
-- The `auditBalance` function is a simplified compliance demo — production would use TEE-issued proofs.
-- Never commit private keys. Use `.env` files that are gitignored.
