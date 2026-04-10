@@ -267,7 +267,27 @@ export default function Home() {
               Connect to Arbitrum Sepolia to access the PrivCredit marketplace.
             </p>
             <div className="flex justify-center">
-              <ConnectButton />
+              <ConnectButton.Custom>
+                {({ openConnectModal, mounted }) => (
+                  <button
+                    onClick={openConnectModal}
+                    disabled={!mounted}
+                    style={{
+                      background: "transparent",
+                      border: "2px solid #00ff88",
+                      color: "#00ff88",
+                      cursor: "pointer",
+                      fontSize: "0.9rem",
+                      letterSpacing: "0.15em",
+                      padding: "1rem 2.5rem",
+                      textTransform: "uppercase",
+                      fontFamily: "IBM Plex Mono, monospace",
+                    }}
+                  >
+                    ▶ Connect Wallet
+                  </button>
+                )}
+              </ConnectButton.Custom>
             </div>
           </div>
         ) : (
