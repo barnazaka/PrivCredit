@@ -352,7 +352,3 @@ privcredit/
 - In production Nox deployment, amounts would be encrypted via the Nox SDK before leaving the client.
 - The `auditBalance` function is a simplified compliance demo — production would use TEE-issued proofs.
 - Never commit private keys. Use `.env` files that are gitignored.
-
----
-
-Built with ❤️ for the **iExec Vibe Coding Hackathon 2026**
