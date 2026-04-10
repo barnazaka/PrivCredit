@@ -661,12 +661,10 @@ export default function Home() {
       <footer className="border-t border-nox/10 px-6 py-4 mt-8">
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-muted">
           <div>
-            PrivCredit — Built for iExec Vibe Coding Hackathon 2026
+            PrivCredit — Built on iExec for Privacy
           </div>
           <div className="flex gap-4">
-            <span>ERC-7984</span>
-            <span>iExec Nox</span>
-            <span>Arbitrum Sepolia</span>
+            <span>On Arbitrum Sepolia Testnet Now</span>
           </div>
         </div>
       </footer>
